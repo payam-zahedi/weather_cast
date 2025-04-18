@@ -18,8 +18,10 @@ _$ForecastImpl _$$ForecastImplFromJson(Map<String, dynamic> json) =>
       visibility: (json['visibility'] as num).toInt(),
       pop: (json['pop'] as num).toInt(),
       sys: Sys.fromJson(json['sys'] as Map<String, dynamic>),
-      dtTxt: DateTime.parse(json['dtTxt'] as String),
-      rain: Rain.fromJson(json['rain'] as Map<String, dynamic>),
+      dtTxt: DateTime.parse(json['dt_txt'] as String),
+      rain: json['rain'] == null
+          ? null
+          : Rain.fromJson(json['rain'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$ForecastImplToJson(_$ForecastImpl instance) =>
@@ -32,7 +34,7 @@ Map<String, dynamic> _$$ForecastImplToJson(_$ForecastImpl instance) =>
       'visibility': instance.visibility,
       'pop': instance.pop,
       'sys': instance.sys,
-      'dtTxt': instance.dtTxt.toIso8601String(),
+      'dt_txt': instance.dtTxt.toIso8601String(),
       'rain': instance.rain,
     };
 
@@ -46,37 +48,37 @@ Map<String, dynamic> _$$CloudsImplToJson(_$CloudsImpl instance) =>
     };
 
 _$RainImpl _$$RainImplFromJson(Map<String, dynamic> json) => _$RainImpl(
-      the3H: (json['the3H'] as num).toDouble(),
+      the3H: (json['3h'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$RainImplToJson(_$RainImpl instance) =>
     <String, dynamic>{
-      'the3H': instance.the3H,
+      '3h': instance.the3H,
     };
 
 _$MainImpl _$$MainImplFromJson(Map<String, dynamic> json) => _$MainImpl(
       temp: (json['temp'] as num).toDouble(),
-      feelsLike: (json['feelsLike'] as num).toDouble(),
-      tempMin: (json['tempMin'] as num).toDouble(),
-      tempMax: (json['tempMax'] as num).toDouble(),
+      feelsLike: (json['feels_like'] as num).toDouble(),
+      tempMin: (json['temp_min'] as num).toDouble(),
+      tempMax: (json['temp_max'] as num).toDouble(),
       pressure: (json['pressure'] as num).toInt(),
-      seaLevel: (json['seaLevel'] as num).toInt(),
-      grndLevel: (json['grndLevel'] as num).toInt(),
+      seaLevel: (json['sea_level'] as num).toInt(),
+      grndLevel: (json['grnd_level'] as num).toInt(),
       humidity: (json['humidity'] as num).toInt(),
-      tempKf: (json['tempKf'] as num).toDouble(),
+      tempKf: (json['temp_kf'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$MainImplToJson(_$MainImpl instance) =>
     <String, dynamic>{
       'temp': instance.temp,
-      'feelsLike': instance.feelsLike,
-      'tempMin': instance.tempMin,
-      'tempMax': instance.tempMax,
+      'feels_like': instance.feelsLike,
+      'temp_min': instance.tempMin,
+      'temp_max': instance.tempMax,
       'pressure': instance.pressure,
-      'seaLevel': instance.seaLevel,
-      'grndLevel': instance.grndLevel,
+      'sea_level': instance.seaLevel,
+      'grnd_level': instance.grndLevel,
       'humidity': instance.humidity,
-      'tempKf': instance.tempKf,
+      'temp_kf': instance.tempKf,
     };
 
 _$SysImpl _$$SysImplFromJson(Map<String, dynamic> json) => _$SysImpl(

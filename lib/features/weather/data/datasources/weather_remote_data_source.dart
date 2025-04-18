@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:weather_cast/core/errors/exceptions.dart';
 import 'package:weather_cast/core/network/api_client.dart';
 import 'package:weather_cast/core/constants/api_constants.dart';
@@ -28,9 +30,13 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
       );
 
       return ForecastResult.fromJson(response);
-    } on ServerException {
+    } on ServerException catch (e, s) {
+      log('ServerException: $e');
+      log('Stack trace: $s');
       rethrow;
-    } catch (e) {
+    } catch (e, s) {
+      log('Error: $e');
+      log('Stack trace: $s');
       throw ServerException(message: e.toString());
     }
   }

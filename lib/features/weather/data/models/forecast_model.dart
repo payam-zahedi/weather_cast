@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'forecast_model.freezed.dart';
 part 'forecast_model.g.dart';
 
+/// Forecast is a model that represents a forecast from the OpenWeather API.
 @freezed
 class Forecast with _$Forecast {
   const factory Forecast({
@@ -15,7 +16,7 @@ class Forecast with _$Forecast {
     required int pop,
     required Sys sys,
     required DateTime dtTxt,
-    required Rain rain,
+    required Rain? rain,
   }) = _Forecast;
 
   factory Forecast.fromJson(Map<String, dynamic> json) =>
@@ -34,7 +35,7 @@ class Clouds with _$Clouds {
 @freezed
 class Rain with _$Rain {
   const factory Rain({
-    required double the3H,
+    @JsonKey(name: '3h') required double the3H,
   }) = _Rain;
 
   factory Rain.fromJson(Map<String, dynamic> json) => _$RainFromJson(json);

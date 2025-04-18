@@ -29,7 +29,7 @@ mixin _$Forecast {
   int get pop => throw _privateConstructorUsedError;
   Sys get sys => throw _privateConstructorUsedError;
   DateTime get dtTxt => throw _privateConstructorUsedError;
-  Rain get rain => throw _privateConstructorUsedError;
+  Rain? get rain => throw _privateConstructorUsedError;
 
   /// Serializes this Forecast to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,13 +56,13 @@ abstract class $ForecastCopyWith<$Res> {
       int pop,
       Sys sys,
       DateTime dtTxt,
-      Rain rain});
+      Rain? rain});
 
   $MainCopyWith<$Res> get main;
   $CloudsCopyWith<$Res> get clouds;
   $WindCopyWith<$Res> get wind;
   $SysCopyWith<$Res> get sys;
-  $RainCopyWith<$Res> get rain;
+  $RainCopyWith<$Res>? get rain;
 }
 
 /// @nodoc
@@ -89,7 +89,7 @@ class _$ForecastCopyWithImpl<$Res, $Val extends Forecast>
     Object? pop = null,
     Object? sys = null,
     Object? dtTxt = null,
-    Object? rain = null,
+    Object? rain = freezed,
   }) {
     return _then(_value.copyWith(
       dt: null == dt
@@ -128,10 +128,10 @@ class _$ForecastCopyWithImpl<$Res, $Val extends Forecast>
           ? _value.dtTxt
           : dtTxt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      rain: null == rain
+      rain: freezed == rain
           ? _value.rain
           : rain // ignore: cast_nullable_to_non_nullable
-              as Rain,
+              as Rain?,
     ) as $Val);
   }
 
@@ -179,8 +179,12 @@ class _$ForecastCopyWithImpl<$Res, $Val extends Forecast>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $RainCopyWith<$Res> get rain {
-    return $RainCopyWith<$Res>(_value.rain, (value) {
+  $RainCopyWith<$Res>? get rain {
+    if (_value.rain == null) {
+      return null;
+    }
+
+    return $RainCopyWith<$Res>(_value.rain!, (value) {
       return _then(_value.copyWith(rain: value) as $Val);
     });
   }
@@ -204,7 +208,7 @@ abstract class _$$ForecastImplCopyWith<$Res>
       int pop,
       Sys sys,
       DateTime dtTxt,
-      Rain rain});
+      Rain? rain});
 
   @override
   $MainCopyWith<$Res> get main;
@@ -215,7 +219,7 @@ abstract class _$$ForecastImplCopyWith<$Res>
   @override
   $SysCopyWith<$Res> get sys;
   @override
-  $RainCopyWith<$Res> get rain;
+  $RainCopyWith<$Res>? get rain;
 }
 
 /// @nodoc
@@ -240,7 +244,7 @@ class __$$ForecastImplCopyWithImpl<$Res>
     Object? pop = null,
     Object? sys = null,
     Object? dtTxt = null,
-    Object? rain = null,
+    Object? rain = freezed,
   }) {
     return _then(_$ForecastImpl(
       dt: null == dt
@@ -279,10 +283,10 @@ class __$$ForecastImplCopyWithImpl<$Res>
           ? _value.dtTxt
           : dtTxt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      rain: null == rain
+      rain: freezed == rain
           ? _value.rain
           : rain // ignore: cast_nullable_to_non_nullable
-              as Rain,
+              as Rain?,
     ));
   }
 }
@@ -331,7 +335,7 @@ class _$ForecastImpl implements _Forecast {
   @override
   final DateTime dtTxt;
   @override
-  final Rain rain;
+  final Rain? rain;
 
   @override
   String toString() {
@@ -398,7 +402,7 @@ abstract class _Forecast implements Forecast {
       required final int pop,
       required final Sys sys,
       required final DateTime dtTxt,
-      required final Rain rain}) = _$ForecastImpl;
+      required final Rain? rain}) = _$ForecastImpl;
 
   factory _Forecast.fromJson(Map<String, dynamic> json) =
       _$ForecastImpl.fromJson;
@@ -422,7 +426,7 @@ abstract class _Forecast implements Forecast {
   @override
   DateTime get dtTxt;
   @override
-  Rain get rain;
+  Rain? get rain;
 
   /// Create a copy of Forecast
   /// with the given fields replaced by the non-null parameter values.
@@ -583,6 +587,7 @@ Rain _$RainFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Rain {
+  @JsonKey(name: '3h')
   double get the3H => throw _privateConstructorUsedError;
 
   /// Serializes this Rain to a JSON map.
@@ -599,7 +604,7 @@ abstract class $RainCopyWith<$Res> {
   factory $RainCopyWith(Rain value, $Res Function(Rain) then) =
       _$RainCopyWithImpl<$Res, Rain>;
   @useResult
-  $Res call({double the3H});
+  $Res call({@JsonKey(name: '3h') double the3H});
 }
 
 /// @nodoc
@@ -635,7 +640,7 @@ abstract class _$$RainImplCopyWith<$Res> implements $RainCopyWith<$Res> {
       __$$RainImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double the3H});
+  $Res call({@JsonKey(name: '3h') double the3H});
 }
 
 /// @nodoc
@@ -664,12 +669,13 @@ class __$$RainImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$RainImpl implements _Rain {
-  const _$RainImpl({required this.the3H});
+  const _$RainImpl({@JsonKey(name: '3h') required this.the3H});
 
   factory _$RainImpl.fromJson(Map<String, dynamic> json) =>
       _$$RainImplFromJson(json);
 
   @override
+  @JsonKey(name: '3h')
   final double the3H;
 
   @override
@@ -706,11 +712,13 @@ class _$RainImpl implements _Rain {
 }
 
 abstract class _Rain implements Rain {
-  const factory _Rain({required final double the3H}) = _$RainImpl;
+  const factory _Rain({@JsonKey(name: '3h') required final double the3H}) =
+      _$RainImpl;
 
   factory _Rain.fromJson(Map<String, dynamic> json) = _$RainImpl.fromJson;
 
   @override
+  @JsonKey(name: '3h')
   double get the3H;
 
   /// Create a copy of Rain

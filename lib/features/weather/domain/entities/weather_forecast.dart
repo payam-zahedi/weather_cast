@@ -1,33 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:weather_cast/features/weather/domain/entities/forecast.dart';
 
 part 'weather_forecast.freezed.dart';
 
 @freezed
-class WeatherForecast with _$WeatherForecast {
-  factory WeatherForecast({
+class WeatherForecastEntity with _$WeatherForecastEntity {
+  factory WeatherForecastEntity({
     required String cityName,
-    required Map<DateTime, DayForecast> dayForecasts,
-  }) = _WeatherForecast;
-}
-
-@freezed
-class DayForecast with _$DayForecast {
-  factory DayForecast({
-    required String weatherStatus,
-    required String weatherDescription,
-    required String weatherIcon,
-    ForecastSpecs? currentForecast,
-    required ForecastSpecs averageForecast,
-  }) = _DayForecast;
-}
-
-@freezed
-class ForecastSpecs with _$ForecastSpecs {
-  factory ForecastSpecs({
-    required double temperature,
-    required double feelsLike,
-    required int humidity,
-    required double pressure,
-    required double windSpeed,
-  }) = _ForecastSpecs;
+    required Map<DateTime, List<ForecastEntity>> forecasts,
+  }) = _WeatherForecastEntity;
 }

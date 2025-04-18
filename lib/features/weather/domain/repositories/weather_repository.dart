@@ -4,5 +4,6 @@ import 'package:weather_cast/features/weather/domain/entities/weather_forecast.d
 
 abstract class WeatherRepository {
   /// Get weather forecast for the next few days for a city
-  Future<Either<Failure, WeatherForecast>> getWeatherForecast(String cityName);
+  Future<Either<Failure, WeatherForecastEntity>> getWeatherForecast(
+      String cityName);
 }

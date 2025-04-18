@@ -15,629 +15,164 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$WeatherForecast {
+mixin _$WeatherForecastEntity {
   String get cityName => throw _privateConstructorUsedError;
-  Map<DateTime, DayForecast> get dayForecasts =>
+  Map<DateTime, List<ForecastEntity>> get forecasts =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of WeatherForecast
+  /// Create a copy of WeatherForecastEntity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $WeatherForecastCopyWith<WeatherForecast> get copyWith =>
+  $WeatherForecastEntityCopyWith<WeatherForecastEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $WeatherForecastCopyWith<$Res> {
-  factory $WeatherForecastCopyWith(
-          WeatherForecast value, $Res Function(WeatherForecast) then) =
-      _$WeatherForecastCopyWithImpl<$Res, WeatherForecast>;
+abstract class $WeatherForecastEntityCopyWith<$Res> {
+  factory $WeatherForecastEntityCopyWith(WeatherForecastEntity value,
+          $Res Function(WeatherForecastEntity) then) =
+      _$WeatherForecastEntityCopyWithImpl<$Res, WeatherForecastEntity>;
   @useResult
-  $Res call({String cityName, Map<DateTime, DayForecast> dayForecasts});
+  $Res call({String cityName, Map<DateTime, List<ForecastEntity>> forecasts});
 }
 
 /// @nodoc
-class _$WeatherForecastCopyWithImpl<$Res, $Val extends WeatherForecast>
-    implements $WeatherForecastCopyWith<$Res> {
-  _$WeatherForecastCopyWithImpl(this._value, this._then);
+class _$WeatherForecastEntityCopyWithImpl<$Res,
+        $Val extends WeatherForecastEntity>
+    implements $WeatherForecastEntityCopyWith<$Res> {
+  _$WeatherForecastEntityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of WeatherForecast
+  /// Create a copy of WeatherForecastEntity
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? cityName = null,
-    Object? dayForecasts = null,
+    Object? forecasts = null,
   }) {
     return _then(_value.copyWith(
       cityName: null == cityName
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
               as String,
-      dayForecasts: null == dayForecasts
-          ? _value.dayForecasts
-          : dayForecasts // ignore: cast_nullable_to_non_nullable
-              as Map<DateTime, DayForecast>,
+      forecasts: null == forecasts
+          ? _value.forecasts
+          : forecasts // ignore: cast_nullable_to_non_nullable
+              as Map<DateTime, List<ForecastEntity>>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$WeatherForecastImplCopyWith<$Res>
-    implements $WeatherForecastCopyWith<$Res> {
-  factory _$$WeatherForecastImplCopyWith(_$WeatherForecastImpl value,
-          $Res Function(_$WeatherForecastImpl) then) =
-      __$$WeatherForecastImplCopyWithImpl<$Res>;
+abstract class _$$WeatherForecastEntityImplCopyWith<$Res>
+    implements $WeatherForecastEntityCopyWith<$Res> {
+  factory _$$WeatherForecastEntityImplCopyWith(
+          _$WeatherForecastEntityImpl value,
+          $Res Function(_$WeatherForecastEntityImpl) then) =
+      __$$WeatherForecastEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cityName, Map<DateTime, DayForecast> dayForecasts});
+  $Res call({String cityName, Map<DateTime, List<ForecastEntity>> forecasts});
 }
 
 /// @nodoc
-class __$$WeatherForecastImplCopyWithImpl<$Res>
-    extends _$WeatherForecastCopyWithImpl<$Res, _$WeatherForecastImpl>
-    implements _$$WeatherForecastImplCopyWith<$Res> {
-  __$$WeatherForecastImplCopyWithImpl(
-      _$WeatherForecastImpl _value, $Res Function(_$WeatherForecastImpl) _then)
+class __$$WeatherForecastEntityImplCopyWithImpl<$Res>
+    extends _$WeatherForecastEntityCopyWithImpl<$Res,
+        _$WeatherForecastEntityImpl>
+    implements _$$WeatherForecastEntityImplCopyWith<$Res> {
+  __$$WeatherForecastEntityImplCopyWithImpl(_$WeatherForecastEntityImpl _value,
+      $Res Function(_$WeatherForecastEntityImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of WeatherForecast
+  /// Create a copy of WeatherForecastEntity
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? cityName = null,
-    Object? dayForecasts = null,
+    Object? forecasts = null,
   }) {
-    return _then(_$WeatherForecastImpl(
+    return _then(_$WeatherForecastEntityImpl(
       cityName: null == cityName
           ? _value.cityName
           : cityName // ignore: cast_nullable_to_non_nullable
               as String,
-      dayForecasts: null == dayForecasts
-          ? _value._dayForecasts
-          : dayForecasts // ignore: cast_nullable_to_non_nullable
-              as Map<DateTime, DayForecast>,
+      forecasts: null == forecasts
+          ? _value._forecasts
+          : forecasts // ignore: cast_nullable_to_non_nullable
+              as Map<DateTime, List<ForecastEntity>>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$WeatherForecastImpl implements _WeatherForecast {
-  _$WeatherForecastImpl(
+class _$WeatherForecastEntityImpl implements _WeatherForecastEntity {
+  _$WeatherForecastEntityImpl(
       {required this.cityName,
-      required final Map<DateTime, DayForecast> dayForecasts})
-      : _dayForecasts = dayForecasts;
+      required final Map<DateTime, List<ForecastEntity>> forecasts})
+      : _forecasts = forecasts;
 
   @override
   final String cityName;
-  final Map<DateTime, DayForecast> _dayForecasts;
+  final Map<DateTime, List<ForecastEntity>> _forecasts;
   @override
-  Map<DateTime, DayForecast> get dayForecasts {
-    if (_dayForecasts is EqualUnmodifiableMapView) return _dayForecasts;
+  Map<DateTime, List<ForecastEntity>> get forecasts {
+    if (_forecasts is EqualUnmodifiableMapView) return _forecasts;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_dayForecasts);
+    return EqualUnmodifiableMapView(_forecasts);
   }
 
   @override
   String toString() {
-    return 'WeatherForecast(cityName: $cityName, dayForecasts: $dayForecasts)';
+    return 'WeatherForecastEntity(cityName: $cityName, forecasts: $forecasts)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WeatherForecastImpl &&
+            other is _$WeatherForecastEntityImpl &&
             (identical(other.cityName, cityName) ||
                 other.cityName == cityName) &&
             const DeepCollectionEquality()
-                .equals(other._dayForecasts, _dayForecasts));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, cityName,
-      const DeepCollectionEquality().hash(_dayForecasts));
-
-  /// Create a copy of WeatherForecast
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WeatherForecastImplCopyWith<_$WeatherForecastImpl> get copyWith =>
-      __$$WeatherForecastImplCopyWithImpl<_$WeatherForecastImpl>(
-          this, _$identity);
-}
-
-abstract class _WeatherForecast implements WeatherForecast {
-  factory _WeatherForecast(
-          {required final String cityName,
-          required final Map<DateTime, DayForecast> dayForecasts}) =
-      _$WeatherForecastImpl;
-
-  @override
-  String get cityName;
-  @override
-  Map<DateTime, DayForecast> get dayForecasts;
-
-  /// Create a copy of WeatherForecast
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$WeatherForecastImplCopyWith<_$WeatherForecastImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$DayForecast {
-  String get weatherStatus => throw _privateConstructorUsedError;
-  String get weatherDescription => throw _privateConstructorUsedError;
-  String get weatherIcon => throw _privateConstructorUsedError;
-  ForecastSpecs? get currentForecast => throw _privateConstructorUsedError;
-  ForecastSpecs get averageForecast => throw _privateConstructorUsedError;
-
-  /// Create a copy of DayForecast
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $DayForecastCopyWith<DayForecast> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DayForecastCopyWith<$Res> {
-  factory $DayForecastCopyWith(
-          DayForecast value, $Res Function(DayForecast) then) =
-      _$DayForecastCopyWithImpl<$Res, DayForecast>;
-  @useResult
-  $Res call(
-      {String weatherStatus,
-      String weatherDescription,
-      String weatherIcon,
-      ForecastSpecs? currentForecast,
-      ForecastSpecs averageForecast});
-
-  $ForecastSpecsCopyWith<$Res>? get currentForecast;
-  $ForecastSpecsCopyWith<$Res> get averageForecast;
-}
-
-/// @nodoc
-class _$DayForecastCopyWithImpl<$Res, $Val extends DayForecast>
-    implements $DayForecastCopyWith<$Res> {
-  _$DayForecastCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of DayForecast
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? weatherStatus = null,
-    Object? weatherDescription = null,
-    Object? weatherIcon = null,
-    Object? currentForecast = freezed,
-    Object? averageForecast = null,
-  }) {
-    return _then(_value.copyWith(
-      weatherStatus: null == weatherStatus
-          ? _value.weatherStatus
-          : weatherStatus // ignore: cast_nullable_to_non_nullable
-              as String,
-      weatherDescription: null == weatherDescription
-          ? _value.weatherDescription
-          : weatherDescription // ignore: cast_nullable_to_non_nullable
-              as String,
-      weatherIcon: null == weatherIcon
-          ? _value.weatherIcon
-          : weatherIcon // ignore: cast_nullable_to_non_nullable
-              as String,
-      currentForecast: freezed == currentForecast
-          ? _value.currentForecast
-          : currentForecast // ignore: cast_nullable_to_non_nullable
-              as ForecastSpecs?,
-      averageForecast: null == averageForecast
-          ? _value.averageForecast
-          : averageForecast // ignore: cast_nullable_to_non_nullable
-              as ForecastSpecs,
-    ) as $Val);
-  }
-
-  /// Create a copy of DayForecast
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ForecastSpecsCopyWith<$Res>? get currentForecast {
-    if (_value.currentForecast == null) {
-      return null;
-    }
-
-    return $ForecastSpecsCopyWith<$Res>(_value.currentForecast!, (value) {
-      return _then(_value.copyWith(currentForecast: value) as $Val);
-    });
-  }
-
-  /// Create a copy of DayForecast
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ForecastSpecsCopyWith<$Res> get averageForecast {
-    return $ForecastSpecsCopyWith<$Res>(_value.averageForecast, (value) {
-      return _then(_value.copyWith(averageForecast: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$DayForecastImplCopyWith<$Res>
-    implements $DayForecastCopyWith<$Res> {
-  factory _$$DayForecastImplCopyWith(
-          _$DayForecastImpl value, $Res Function(_$DayForecastImpl) then) =
-      __$$DayForecastImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String weatherStatus,
-      String weatherDescription,
-      String weatherIcon,
-      ForecastSpecs? currentForecast,
-      ForecastSpecs averageForecast});
-
-  @override
-  $ForecastSpecsCopyWith<$Res>? get currentForecast;
-  @override
-  $ForecastSpecsCopyWith<$Res> get averageForecast;
-}
-
-/// @nodoc
-class __$$DayForecastImplCopyWithImpl<$Res>
-    extends _$DayForecastCopyWithImpl<$Res, _$DayForecastImpl>
-    implements _$$DayForecastImplCopyWith<$Res> {
-  __$$DayForecastImplCopyWithImpl(
-      _$DayForecastImpl _value, $Res Function(_$DayForecastImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of DayForecast
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? weatherStatus = null,
-    Object? weatherDescription = null,
-    Object? weatherIcon = null,
-    Object? currentForecast = freezed,
-    Object? averageForecast = null,
-  }) {
-    return _then(_$DayForecastImpl(
-      weatherStatus: null == weatherStatus
-          ? _value.weatherStatus
-          : weatherStatus // ignore: cast_nullable_to_non_nullable
-              as String,
-      weatherDescription: null == weatherDescription
-          ? _value.weatherDescription
-          : weatherDescription // ignore: cast_nullable_to_non_nullable
-              as String,
-      weatherIcon: null == weatherIcon
-          ? _value.weatherIcon
-          : weatherIcon // ignore: cast_nullable_to_non_nullable
-              as String,
-      currentForecast: freezed == currentForecast
-          ? _value.currentForecast
-          : currentForecast // ignore: cast_nullable_to_non_nullable
-              as ForecastSpecs?,
-      averageForecast: null == averageForecast
-          ? _value.averageForecast
-          : averageForecast // ignore: cast_nullable_to_non_nullable
-              as ForecastSpecs,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$DayForecastImpl implements _DayForecast {
-  _$DayForecastImpl(
-      {required this.weatherStatus,
-      required this.weatherDescription,
-      required this.weatherIcon,
-      this.currentForecast,
-      required this.averageForecast});
-
-  @override
-  final String weatherStatus;
-  @override
-  final String weatherDescription;
-  @override
-  final String weatherIcon;
-  @override
-  final ForecastSpecs? currentForecast;
-  @override
-  final ForecastSpecs averageForecast;
-
-  @override
-  String toString() {
-    return 'DayForecast(weatherStatus: $weatherStatus, weatherDescription: $weatherDescription, weatherIcon: $weatherIcon, currentForecast: $currentForecast, averageForecast: $averageForecast)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DayForecastImpl &&
-            (identical(other.weatherStatus, weatherStatus) ||
-                other.weatherStatus == weatherStatus) &&
-            (identical(other.weatherDescription, weatherDescription) ||
-                other.weatherDescription == weatherDescription) &&
-            (identical(other.weatherIcon, weatherIcon) ||
-                other.weatherIcon == weatherIcon) &&
-            (identical(other.currentForecast, currentForecast) ||
-                other.currentForecast == currentForecast) &&
-            (identical(other.averageForecast, averageForecast) ||
-                other.averageForecast == averageForecast));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, weatherStatus,
-      weatherDescription, weatherIcon, currentForecast, averageForecast);
-
-  /// Create a copy of DayForecast
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DayForecastImplCopyWith<_$DayForecastImpl> get copyWith =>
-      __$$DayForecastImplCopyWithImpl<_$DayForecastImpl>(this, _$identity);
-}
-
-abstract class _DayForecast implements DayForecast {
-  factory _DayForecast(
-      {required final String weatherStatus,
-      required final String weatherDescription,
-      required final String weatherIcon,
-      final ForecastSpecs? currentForecast,
-      required final ForecastSpecs averageForecast}) = _$DayForecastImpl;
-
-  @override
-  String get weatherStatus;
-  @override
-  String get weatherDescription;
-  @override
-  String get weatherIcon;
-  @override
-  ForecastSpecs? get currentForecast;
-  @override
-  ForecastSpecs get averageForecast;
-
-  /// Create a copy of DayForecast
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DayForecastImplCopyWith<_$DayForecastImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$ForecastSpecs {
-  double get temperature => throw _privateConstructorUsedError;
-  double get feelsLike => throw _privateConstructorUsedError;
-  int get humidity => throw _privateConstructorUsedError;
-  double get pressure => throw _privateConstructorUsedError;
-  double get windSpeed => throw _privateConstructorUsedError;
-
-  /// Create a copy of ForecastSpecs
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $ForecastSpecsCopyWith<ForecastSpecs> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ForecastSpecsCopyWith<$Res> {
-  factory $ForecastSpecsCopyWith(
-          ForecastSpecs value, $Res Function(ForecastSpecs) then) =
-      _$ForecastSpecsCopyWithImpl<$Res, ForecastSpecs>;
-  @useResult
-  $Res call(
-      {double temperature,
-      double feelsLike,
-      int humidity,
-      double pressure,
-      double windSpeed});
-}
-
-/// @nodoc
-class _$ForecastSpecsCopyWithImpl<$Res, $Val extends ForecastSpecs>
-    implements $ForecastSpecsCopyWith<$Res> {
-  _$ForecastSpecsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of ForecastSpecs
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? temperature = null,
-    Object? feelsLike = null,
-    Object? humidity = null,
-    Object? pressure = null,
-    Object? windSpeed = null,
-  }) {
-    return _then(_value.copyWith(
-      temperature: null == temperature
-          ? _value.temperature
-          : temperature // ignore: cast_nullable_to_non_nullable
-              as double,
-      feelsLike: null == feelsLike
-          ? _value.feelsLike
-          : feelsLike // ignore: cast_nullable_to_non_nullable
-              as double,
-      humidity: null == humidity
-          ? _value.humidity
-          : humidity // ignore: cast_nullable_to_non_nullable
-              as int,
-      pressure: null == pressure
-          ? _value.pressure
-          : pressure // ignore: cast_nullable_to_non_nullable
-              as double,
-      windSpeed: null == windSpeed
-          ? _value.windSpeed
-          : windSpeed // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$ForecastSpecsImplCopyWith<$Res>
-    implements $ForecastSpecsCopyWith<$Res> {
-  factory _$$ForecastSpecsImplCopyWith(
-          _$ForecastSpecsImpl value, $Res Function(_$ForecastSpecsImpl) then) =
-      __$$ForecastSpecsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {double temperature,
-      double feelsLike,
-      int humidity,
-      double pressure,
-      double windSpeed});
-}
-
-/// @nodoc
-class __$$ForecastSpecsImplCopyWithImpl<$Res>
-    extends _$ForecastSpecsCopyWithImpl<$Res, _$ForecastSpecsImpl>
-    implements _$$ForecastSpecsImplCopyWith<$Res> {
-  __$$ForecastSpecsImplCopyWithImpl(
-      _$ForecastSpecsImpl _value, $Res Function(_$ForecastSpecsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ForecastSpecs
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? temperature = null,
-    Object? feelsLike = null,
-    Object? humidity = null,
-    Object? pressure = null,
-    Object? windSpeed = null,
-  }) {
-    return _then(_$ForecastSpecsImpl(
-      temperature: null == temperature
-          ? _value.temperature
-          : temperature // ignore: cast_nullable_to_non_nullable
-              as double,
-      feelsLike: null == feelsLike
-          ? _value.feelsLike
-          : feelsLike // ignore: cast_nullable_to_non_nullable
-              as double,
-      humidity: null == humidity
-          ? _value.humidity
-          : humidity // ignore: cast_nullable_to_non_nullable
-              as int,
-      pressure: null == pressure
-          ? _value.pressure
-          : pressure // ignore: cast_nullable_to_non_nullable
-              as double,
-      windSpeed: null == windSpeed
-          ? _value.windSpeed
-          : windSpeed // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ForecastSpecsImpl implements _ForecastSpecs {
-  _$ForecastSpecsImpl(
-      {required this.temperature,
-      required this.feelsLike,
-      required this.humidity,
-      required this.pressure,
-      required this.windSpeed});
-
-  @override
-  final double temperature;
-  @override
-  final double feelsLike;
-  @override
-  final int humidity;
-  @override
-  final double pressure;
-  @override
-  final double windSpeed;
-
-  @override
-  String toString() {
-    return 'ForecastSpecs(temperature: $temperature, feelsLike: $feelsLike, humidity: $humidity, pressure: $pressure, windSpeed: $windSpeed)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ForecastSpecsImpl &&
-            (identical(other.temperature, temperature) ||
-                other.temperature == temperature) &&
-            (identical(other.feelsLike, feelsLike) ||
-                other.feelsLike == feelsLike) &&
-            (identical(other.humidity, humidity) ||
-                other.humidity == humidity) &&
-            (identical(other.pressure, pressure) ||
-                other.pressure == pressure) &&
-            (identical(other.windSpeed, windSpeed) ||
-                other.windSpeed == windSpeed));
+                .equals(other._forecasts, _forecasts));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, temperature, feelsLike, humidity, pressure, windSpeed);
+      runtimeType, cityName, const DeepCollectionEquality().hash(_forecasts));
 
-  /// Create a copy of ForecastSpecs
+  /// Create a copy of WeatherForecastEntity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ForecastSpecsImplCopyWith<_$ForecastSpecsImpl> get copyWith =>
-      __$$ForecastSpecsImplCopyWithImpl<_$ForecastSpecsImpl>(this, _$identity);
+  _$$WeatherForecastEntityImplCopyWith<_$WeatherForecastEntityImpl>
+      get copyWith => __$$WeatherForecastEntityImplCopyWithImpl<
+          _$WeatherForecastEntityImpl>(this, _$identity);
 }
 
-abstract class _ForecastSpecs implements ForecastSpecs {
-  factory _ForecastSpecs(
-      {required final double temperature,
-      required final double feelsLike,
-      required final int humidity,
-      required final double pressure,
-      required final double windSpeed}) = _$ForecastSpecsImpl;
+abstract class _WeatherForecastEntity implements WeatherForecastEntity {
+  factory _WeatherForecastEntity(
+          {required final String cityName,
+          required final Map<DateTime, List<ForecastEntity>> forecasts}) =
+      _$WeatherForecastEntityImpl;
 
   @override
-  double get temperature;
+  String get cityName;
   @override
-  double get feelsLike;
-  @override
-  int get humidity;
-  @override
-  double get pressure;
-  @override
-  double get windSpeed;
+  Map<DateTime, List<ForecastEntity>> get forecasts;
 
-  /// Create a copy of ForecastSpecs
+  /// Create a copy of WeatherForecastEntity
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ForecastSpecsImplCopyWith<_$ForecastSpecsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WeatherForecastEntityImplCopyWith<_$WeatherForecastEntityImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

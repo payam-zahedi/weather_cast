@@ -163,14 +163,15 @@ class __$$ForecastResultImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ForecastResultImpl implements _ForecastResult {
+class _$ForecastResultImpl extends _ForecastResult {
   const _$ForecastResultImpl(
       {required this.cod,
       required this.message,
       required this.cnt,
       required final List<Forecast> list,
       required this.city})
-      : _list = list;
+      : _list = list,
+        super._();
 
   factory _$ForecastResultImpl.fromJson(Map<String, dynamic> json) =>
       _$$ForecastResultImplFromJson(json);
@@ -231,13 +232,14 @@ class _$ForecastResultImpl implements _ForecastResult {
   }
 }
 
-abstract class _ForecastResult implements ForecastResult {
+abstract class _ForecastResult extends ForecastResult {
   const factory _ForecastResult(
       {required final String cod,
       required final int message,
       required final int cnt,
       required final List<Forecast> list,
       required final City city}) = _$ForecastResultImpl;
+  const _ForecastResult._() : super._();
 
   factory _ForecastResult.fromJson(Map<String, dynamic> json) =
       _$ForecastResultImpl.fromJson;

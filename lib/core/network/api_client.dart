@@ -1,6 +1,8 @@
+import 'dart:developer';
 import 'package:dio/dio.dart';
 import '../errors/exceptions.dart';
 
+// TODO: create an abstract class for the api client
 class ApiClient {
   final Dio dio;
 
@@ -10,6 +12,7 @@ class ApiClient {
     dio.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*',
     };
   }
 
@@ -104,6 +107,8 @@ class ApiClient {
   }
 
   Never _handleDioError(DioException e) {
+    log('DioException: $e');
+
     switch (e.type) {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
