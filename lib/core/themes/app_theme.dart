@@ -22,7 +22,7 @@ class AppTheme {
         surfaceContainer: _backgroundColor,
         surface: _cardColorLight,
       ),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         elevation: 0,
         centerTitle: true,
         backgroundColor: _primaryColor,
@@ -50,7 +50,7 @@ class AppTheme {
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
       ),
       textTheme: ThemeData.light().textTheme.copyWith(
-            headlineMedium: TextStyle(
+            headlineMedium: const TextStyle(
               color: _primaryColor,
               fontWeight: FontWeight.bold,
             ),

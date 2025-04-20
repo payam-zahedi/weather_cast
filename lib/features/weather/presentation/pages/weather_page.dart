@@ -68,21 +68,21 @@ class WeatherBody extends StatelessWidget {
       onRefresh: () async {
         return context.read<WeatherCubit>().fetchWeatherForecast();
       },
-      child: SingleChildScrollView(
+      child: const SingleChildScrollView(
         // physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // City name
-            const _CityName(),
-            const SizedBox(height: 0),
+            _CityName(),
+            SizedBox(height: 0),
             // Weather detail card
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: const WeatherDetailCard(),
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: WeatherDetailCard(),
             ),
             // Horizontal list of day forecasts
-            const _HorizontalDayView(),
+            _HorizontalDayView(),
           ],
         ),
       ),

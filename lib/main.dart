@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
 
         /// Update scroll behavior to add mouse and touch support for macos
-        scrollBehavior: ScrollBehavior().copyWith(
+        scrollBehavior: const ScrollBehavior().copyWith(
           dragDevices: {
             PointerDeviceKind.mouse,
             PointerDeviceKind.touch,

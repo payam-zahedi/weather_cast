@@ -25,7 +25,7 @@ class WeatherLocalDataSourceImpl implements WeatherLocalDataSource {
     if (jsonString != null) {
       return ForecastResult.fromJson(json.decode(jsonString));
     } else {
-      throw CacheException(message: 'No cached weather found');
+      throw const CacheException(message: 'No cached weather found');
     }
   }
 

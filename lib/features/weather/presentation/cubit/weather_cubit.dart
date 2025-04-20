@@ -8,7 +8,7 @@ class WeatherCubit extends Cubit<WeatherState> {
   WeatherCubit({
     required this.getWeatherForecastUseCase,
     required this.aggregateWeeklyForecastUseCase,
-  }) : super(WeatherState());
+  }) : super(const WeatherState());
 
   final GetWeatherForecastUseCase getWeatherForecastUseCase;
   final AggregateWeeklyForecastUseCase aggregateWeeklyForecastUseCase;

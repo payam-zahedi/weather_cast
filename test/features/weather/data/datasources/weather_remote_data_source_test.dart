@@ -131,7 +131,7 @@ void main() {
       when(mockApiClient.get(
         any,
         queryParameters: anyNamed('queryParameters'),
-      )).thenThrow(ServerException(message: 'Server error', statusCode: 500));
+      )).thenThrow(const ServerException(message: 'Server error', statusCode: 500));
 
       // Act & Assert
       expect(
@@ -149,7 +149,7 @@ void main() {
         any,
         queryParameters: anyNamed('queryParameters'),
       )).thenThrow(
-          ServerException(message: errorMessage, statusCode: statusCode));
+          const ServerException(message: errorMessage, statusCode: statusCode));
 
       // Act
       try {

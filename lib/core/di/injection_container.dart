@@ -72,5 +72,5 @@ Future<void> _initWeather() async {
 
   // Use cases
   getIt.registerLazySingleton(() => GetWeatherForecastUseCase(getIt()));
-  getIt.registerLazySingleton(() => AggregateWeeklyForecastUseCase());
+  getIt.registerLazySingleton(() => const AggregateWeeklyForecastUseCase());
 }

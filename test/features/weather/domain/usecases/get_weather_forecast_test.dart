@@ -39,7 +39,7 @@ void main() {
 
   test('should relay server failure from the repository', () async {
     // arrange
-    final failure = ServerFailure(message: 'Server error');
+    final failure = const ServerFailure(message: 'Server error');
     when(mockWeatherRepository.getWeatherForecast(any))
         .thenAnswer((_) async => Left(failure));
 

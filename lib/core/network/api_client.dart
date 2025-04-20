@@ -141,7 +141,7 @@ class DioApiClient implements ApiClient {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
-        throw NetworkException(message: 'Connection timeout');
+        throw const NetworkException(message: 'Connection timeout');
       case DioExceptionType.badCertificate:
       case DioExceptionType.badResponse:
         final statusCode = e.response?.statusCode;
@@ -157,9 +157,9 @@ class DioApiClient implements ApiClient {
           statusCode: statusCode,
         );
       case DioExceptionType.cancel:
-        throw ServerException(message: 'Request canceled');
+        throw const ServerException(message: 'Request canceled');
       case DioExceptionType.connectionError:
-        throw NetworkException(message: 'No internet connection');
+        throw const NetworkException(message: 'No internet connection');
       case DioExceptionType.unknown:
         throw UnknownException(message: e.message ?? 'Unknown error');
     }
