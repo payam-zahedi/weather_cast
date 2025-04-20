@@ -73,21 +73,27 @@ class WeatherBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // City name
-          const _CityName(),
-          const SizedBox(height: 0),
-          // Weather detail card
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: const WeatherDetailCard(),
-          ),
-          // Horizontal list of day forecasts
-          const _HorizontalDayView(),
-        ],
+    return RefreshIndicator(
+      onRefresh: () async {
+        return context.read<WeatherCubit>().fetchWeatherForecast();
+      },
+      child: SingleChildScrollView(
+        // physics: const AlwaysScrollableScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // City name
+            const _CityName(),
+            const SizedBox(height: 0),
+            // Weather detail card
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: const WeatherDetailCard(),
+            ),
+            // Horizontal list of day forecasts
+            const _HorizontalDayView(),
+          ],
+        ),
       ),
     );
   }
@@ -149,6 +155,8 @@ class _HorizontalDayView extends StatelessWidget {
         itemCount: weeklyForecast.dayForecasts.length,
         itemBuilder: (context, index) {
           final dayForecast = weeklyForecast.dayForecasts[index];
+
+          final isToday = dayForecast.currentForecast != null;
           final isSelected = dayForecast == selectedForecast;
 
           return GestureDetector(
@@ -158,6 +166,7 @@ class _HorizontalDayView extends StatelessWidget {
             },
             child: ForecastDayItem(
               dayForecast: dayForecast,
+              isToday: isToday,
               isSelected: isSelected,
               temperatureUnit: temperatureUnit,
             ),

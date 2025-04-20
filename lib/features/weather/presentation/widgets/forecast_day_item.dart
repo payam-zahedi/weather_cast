@@ -7,26 +7,32 @@ import 'package:weather_cast/features/weather/presentation/utils/temperature_for
 import 'package:weather_cast/features/weather/domain/entities/weekly_forecast.dart';
 
 class ForecastDayItem extends StatelessWidget {
-  final DayForecastEntity dayForecast;
-  final bool isSelected;
-  final TemperatureUnit temperatureUnit;
-
   const ForecastDayItem({
     super.key,
     required this.dayForecast,
+    required this.isToday,
     required this.isSelected,
     required this.temperatureUnit,
   });
 
+  final DayForecastEntity dayForecast;
+  final bool isToday;
+  final bool isSelected;
+  final TemperatureUnit temperatureUnit;
+
   @override
   Widget build(BuildContext context) {
-    final forecast = dayForecast.averageForecast;
+    final forecast = isToday
+        ? dayForecast.currentForecast ?? dayForecast.averageForecast
+        : dayForecast.averageForecast;
     final dayFormat = DateFormat('E');
     final dateFormat = DateFormat('d');
     final primaryColor = Theme.of(context).colorScheme.primary;
     final cardColor = isSelected
         ? Theme.of(context).colorScheme.primaryContainer
         : Theme.of(context).colorScheme.surface;
+
+    final weekDay = isToday ? 'Today' : dayFormat.format(dayForecast.date);
 
     return Card(
       color: cardColor,
@@ -46,7 +52,7 @@ class ForecastDayItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              dayFormat.format(dayForecast.date),
+              weekDay,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,

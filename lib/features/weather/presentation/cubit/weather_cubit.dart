@@ -16,6 +16,9 @@ class WeatherCubit extends Cubit<WeatherState> {
   Future<void> fetchWeatherForecast({String cityName = 'Berlin'}) async {
     emit(state.copyWith(isLoading: true, errorMessage: null));
 
+    // Simulate network delay
+    await Future.delayed(const Duration(seconds: 1));
+
     final result = await getWeatherForecastUseCase.execute(cityName);
 
     result.fold(
