@@ -4,12 +4,10 @@ import 'package:weather_cast/features/weather/presentation/cubit/weather_state.d
 class WeatherUnitsFormatter {
   /// Converts temperature from Kelvin to the selected unit (Celsius or Fahrenheit)
   static double formatTemperature(double kelvinTemp, TemperatureUnit unit) {
-    switch (unit) {
-      case TemperatureUnit.celsius:
-        return kelvinTemp - 273.15;
-      case TemperatureUnit.fahrenheit:
-        return (kelvinTemp - 273.15) * 9 / 5 + 32;
-    }
+    return switch (unit) {
+      TemperatureUnit.celsius => kelvinTemp - 273.15,
+      TemperatureUnit.fahrenheit => (kelvinTemp - 273.15) * 9 / 5 + 32,
+    };
   }
 
   /// Formats temperature with specified decimal places

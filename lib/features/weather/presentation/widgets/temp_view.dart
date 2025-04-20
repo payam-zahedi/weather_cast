@@ -26,7 +26,9 @@ class TemperatureUnitView extends StatelessWidget {
         ),
       ),
       onSelected: (unit) {
-        context.read<WeatherCubit>().toggleTemperatureUnit();
+        if (unit != temperatureUnit) {
+          context.read<WeatherCubit>().toggleTemperatureUnit();
+        }
       },
       itemBuilder: (context) => TemperatureUnit.values
           .map(

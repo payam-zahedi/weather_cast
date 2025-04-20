@@ -24,7 +24,6 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
         ApiConstants.forecastEndpoint,
         queryParameters: {
           ApiConstants.cityNameParam: cityName,
-          // TODO: try to use interceptors to add api key
           ApiConstants.apiKeyParam: ApiConstants.apiKey,
         },
       );

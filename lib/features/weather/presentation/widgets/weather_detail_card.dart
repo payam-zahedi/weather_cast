@@ -8,7 +8,7 @@ import 'package:weather_cast/features/weather/domain/entities/forecast.dart';
 import 'package:weather_cast/features/weather/domain/entities/weekly_forecast.dart';
 import 'package:weather_cast/features/weather/presentation/cubit/weather_cubit.dart';
 import 'package:weather_cast/features/weather/presentation/cubit/weather_state.dart';
-import 'package:weather_cast/features/weather/presentation/utils/temperature_formatter.dart';
+import 'package:weather_cast/features/weather/presentation/utils/weather_utills.dart';
 
 class WeatherDetailCard extends StatelessWidget {
   const WeatherDetailCard({super.key});

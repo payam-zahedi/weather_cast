@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_cast/core/constants/api_constants.dart';
 import 'package:weather_cast/features/weather/presentation/cubit/weather_state.dart';
-import 'package:weather_cast/features/weather/presentation/utils/temperature_formatter.dart';
+import 'package:weather_cast/features/weather/presentation/utils/weather_utills.dart';
 import 'package:weather_cast/features/weather/domain/entities/weekly_forecast.dart';
 
 class ForecastDayItem extends StatelessWidget {
@@ -78,12 +78,6 @@ class ForecastDayItem extends StatelessWidget {
                 imageUrl: ApiConstants.getIconUrl(forecast.weatherIcon),
                 width: 56,
                 height: 56,
-                placeholder: (context, url) => const SizedBox(
-                  width: 56,
-                  height: 56,
-                  child:
-                      Center(child: CircularProgressIndicator(strokeWidth: 2)),
-                ),
               ),
             ),
             const SizedBox(height: 6),
