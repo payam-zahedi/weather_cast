@@ -2,21 +2,36 @@ class AppException implements Exception {
   final String message;
   final int? statusCode;
 
-  AppException({required this.message, this.statusCode});
+  const AppException({required this.message, this.statusCode});
 }
 
 class ServerException extends AppException {
-  ServerException({required super.message, super.statusCode});
+  const ServerException({required super.message, super.statusCode});
 }
 
 class CacheException extends AppException {
-  CacheException({required super.message});
+  const CacheException({required super.message});
 }
 
 class NetworkException extends AppException {
-  NetworkException({required super.message});
+  const NetworkException({required super.message});
 }
 
 class UnauthorizedException extends AppException {
-  UnauthorizedException({required super.message, super.statusCode});
+  const UnauthorizedException({required super.message, super.statusCode});
+}
+
+class UnknownException extends AppException {
+  const UnknownException({
+    required super.message,
+    super.statusCode,
+    this.exception,
+  });
+
+  final Exception? exception;
+
+  @override
+  String toString() {
+    return '$message, ${exception?.toString()}';
+  }
 }

@@ -43,13 +43,14 @@ Future<void> _initServices() async {
       },
     ),
   );
-  getIt.registerLazySingleton(() => dio);
+
+  // Register API client implementation - use DioApiClient
+  getIt.registerLazySingleton<ApiClient>(() => DioApiClient(dio));
 
   getIt.registerLazySingleton(() => Connectivity());
 
   //! Core
   getIt.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(getIt()));
-  getIt.registerLazySingleton(() => ApiClient(getIt()));
 }
 
 Future<void> _initWeather() async {

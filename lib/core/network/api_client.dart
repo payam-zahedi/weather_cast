@@ -1,12 +1,42 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
-import '../errors/exceptions.dart';
+import 'package:weather_cast/core/errors/exceptions.dart';
 
-// TODO: create an abstract class for the api client
-class ApiClient {
+// Abstract ApiClient
+abstract class ApiClient {
+  Future<dynamic> get(
+    String url, {
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
+  });
+
+  Future<dynamic> post(
+    String url, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
+  });
+
+  Future<dynamic> put(
+    String url, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
+  });
+
+  Future<dynamic> delete(
+    String url, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
+  });
+}
+
+// Dio implementation of ApiClient
+class DioApiClient implements ApiClient {
   final Dio dio;
 
-  ApiClient(this.dio) {
+  DioApiClient(this.dio) {
     dio.options.connectTimeout = const Duration(seconds: 30);
     dio.options.receiveTimeout = const Duration(seconds: 30);
     dio.options.headers = {
@@ -16,18 +46,17 @@ class ApiClient {
     };
   }
 
+  @override
   Future<dynamic> get(
     String url, {
     Map<String, dynamic>? queryParameters,
-    Options? options,
-    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
   }) async {
     try {
       final response = await dio.get(
         url,
         queryParameters: queryParameters,
-        options: options,
-        cancelToken: cancelToken,
+        options: headers != null ? Options(headers: headers) : null,
       );
       return response.data;
     } on DioException catch (e) {
@@ -37,20 +66,19 @@ class ApiClient {
     }
   }
 
+  @override
   Future<dynamic> post(
     String url, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
-    Options? options,
-    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
   }) async {
     try {
       final response = await dio.post(
         url,
         data: data,
         queryParameters: queryParameters,
-        options: options,
-        cancelToken: cancelToken,
+        options: headers != null ? Options(headers: headers) : null,
       );
       return response.data;
     } on DioException catch (e) {
@@ -60,20 +88,19 @@ class ApiClient {
     }
   }
 
+  @override
   Future<dynamic> put(
     String url, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
-    Options? options,
-    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
   }) async {
     try {
       final response = await dio.put(
         url,
         data: data,
         queryParameters: queryParameters,
-        options: options,
-        cancelToken: cancelToken,
+        options: headers != null ? Options(headers: headers) : null,
       );
       return response.data;
     } on DioException catch (e) {
@@ -83,30 +110,31 @@ class ApiClient {
     }
   }
 
+  @override
   Future<dynamic> delete(
     String url, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
-    Options? options,
-    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
   }) async {
     try {
       final response = await dio.delete(
         url,
         data: data,
         queryParameters: queryParameters,
-        options: options,
-        cancelToken: cancelToken,
+        options: headers != null ? Options(headers: headers) : null,
       );
       return response.data;
     } on DioException catch (e) {
       _handleDioError(e);
+    } on Exception catch (e) {
+      throw UnknownException(message: e.toString(), exception: e);
     } catch (e) {
-      throw ServerException(message: e.toString());
+      throw UnknownException(message: e.toString());
     }
   }
 
-  Never _handleDioError(DioException e) {
+  void _handleDioError(DioException e) {
     log('DioException: $e');
 
     switch (e.type) {
@@ -133,7 +161,7 @@ class ApiClient {
       case DioExceptionType.connectionError:
         throw NetworkException(message: 'No internet connection');
       case DioExceptionType.unknown:
-        throw ServerException(message: e.message ?? 'Unknown error');
+        throw UnknownException(message: e.message ?? 'Unknown error');
     }
   }
 }
