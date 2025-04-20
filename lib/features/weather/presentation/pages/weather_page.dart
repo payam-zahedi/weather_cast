@@ -156,6 +156,7 @@ class _HorizontalDayView extends StatelessWidget {
               context.read<WeatherCubit>().selectDayForecast(dayForecast);
             },
             child: ForecastDayItem(
+              key: Key(dayForecast.date.toString()),
               dayForecast: dayForecast,
               isToday: isToday,
               isSelected: isSelected,
