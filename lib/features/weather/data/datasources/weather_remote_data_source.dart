@@ -6,6 +6,8 @@ import 'package:weather_cast/core/constants/api_constants.dart';
 import 'package:weather_cast/features/weather/data/models/forecast_result_model.dart';
 
 abstract class WeatherRemoteDataSource {
+  const WeatherRemoteDataSource();
+
   /// Calls the OpenWeatherMap 5-day forecast API.
   ///
   /// Throws a [ServerException] for all error codes.
@@ -13,10 +15,9 @@ abstract class WeatherRemoteDataSource {
 }
 
 class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
+  const WeatherRemoteDataSourceImpl({required this.client});
+
   final ApiClient client;
-
-  WeatherRemoteDataSourceImpl({required this.client});
-
   @override
   Future<ForecastResult> getWeatherWeeklyForecast(String cityName) async {
     try {

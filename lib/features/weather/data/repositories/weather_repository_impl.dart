@@ -15,25 +15,30 @@ class WeatherRepositoryImpl implements WeatherRepository {
     required this.networkInfo,
   });
 
-  // TODO: add support for offline mode later
   @override
   Future<Either<Failure, WeatherForecastEntity>> getWeatherForecast(
     String cityName,
   ) async {
-    try {
-      final forecastResult = await remoteDataSource.getWeatherWeeklyForecast(
-        cityName,
-      );
+    if (await networkInfo.isConnected) {
+      try {
+        final forecastResult = await remoteDataSource.getWeatherWeeklyForecast(
+          cityName,
+        );
 
-      // Convert ForecastResult to WeatherForecast using the mapper
-      return Right(forecastResult.toWeatherForecast());
-    } on ServerException catch (e) {
-      return Left(
-        ServerFailure(message: e.message, statusCode: e.statusCode),
-      );
-    } catch (e) {
-      return Left(
-        ServerFailure(message: e.toString(), statusCode: 500),
+        // Convert ForecastResult to WeatherForecast using the mapper
+        return Right(forecastResult.toWeatherForecast());
+      } on ServerException catch (e) {
+        return Left(
+          ServerFailure(message: e.message, statusCode: e.statusCode),
+        );
+      } catch (e) {
+        return Left(
+          ServerFailure(message: e.toString(), statusCode: 500),
+        );
+      }
+    } else {
+      return const Left(
+        NetworkFailure(message: 'No internet connection'),
       );
     }
   }

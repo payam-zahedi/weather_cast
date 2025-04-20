@@ -1,0 +1,36 @@
+{
+    "dt": 1745182800,
+    "main": {
+        "temp": 284.47,
+        "feels_like": 283.56,
+        "temp_min": 284.36,
+        "temp_max": 284.47,
+        "pressure": 1007,
+        "sea_level": 1007,
+        "grnd_level": 1003,
+        "humidity": 73,
+        "temp_kf": 0.11
+    },
+    "weather": [
+        {
+            "id": 804,
+            "main": "Clouds",
+            "description": "overcast clouds",
+            "icon": "04n"
+        }
+    ],
+    "clouds": {
+        "all": 89
+    },
+    "wind": {
+        "speed": 2.84,
+        "deg": 87,
+        "gust": 4.15
+    },
+    "visibility": 10000,
+    "pop": 0,
+    "sys": {
+        "pod": "n"
+    },
+    "dt_txt": "2025-04-20 21:00:00"
+}
