@@ -4,8 +4,7 @@ class AppErrorWidget extends StatelessWidget {
   final String message;
   final Function()? onRetry;
 
-  const AppErrorWidget({Key? key, required this.message, this.onRetry})
-    : super(key: key);
+  const AppErrorWidget({super.key, required this.message, this.onRetry});
 
   @override
   Widget build(BuildContext context) {

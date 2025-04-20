@@ -19,7 +19,7 @@ class AppTheme {
         brightness: Brightness.light,
         primary: _primaryColor,
         secondary: _secondaryColor,
-        background: _backgroundColor,
+        surfaceContainer: _backgroundColor,
         surface: _cardColorLight,
       ),
       appBarTheme: AppBarTheme(
@@ -45,7 +45,7 @@ class AppTheme {
       cardTheme: CardTheme(
         elevation: 3,
         color: _cardColorLight,
-        shadowColor: _primaryColor.withOpacity(0.3),
+        shadowColor: _primaryColor.withAlpha(75),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
       ),
@@ -70,7 +70,7 @@ class AppTheme {
         brightness: Brightness.dark,
         primary: _primaryColor,
         secondary: _secondaryColor,
-        background: _darkBackgroundColor,
+        surfaceContainer: _darkBackgroundColor,
         surface: _cardColorDark,
       ),
       appBarTheme: const AppBarTheme(

@@ -31,7 +31,7 @@ class ForecastDayItem extends StatelessWidget {
     return Card(
       color: cardColor,
       elevation: isSelected ? 4 : 1,
-      shadowColor: isSelected ? primaryColor.withOpacity(0.5) : Colors.black12,
+      shadowColor: isSelected ? primaryColor.withAlpha(125) : Colors.black12,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
         side: isSelected
@@ -57,17 +57,15 @@ class ForecastDayItem extends StatelessWidget {
               dateFormat.format(dayForecast.date),
               style: TextStyle(
                 fontSize: 14,
-                color: isSelected
-                    ? primaryColor.withOpacity(0.8)
-                    : Colors.grey[600],
+                color:
+                    isSelected ? primaryColor.withAlpha(150) : Colors.grey[600],
               ),
             ),
             const SizedBox(height: 6),
             Container(
               padding: const EdgeInsets.all(6),
               decoration: BoxDecoration(
-                color:
-                    isSelected ? primaryColor.withOpacity(0.1) : Colors.black12,
+                color: isSelected ? primaryColor.withAlpha(45) : Colors.black12,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: CachedNetworkImage(
@@ -84,7 +82,10 @@ class ForecastDayItem extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              '${WeatherUnitsFormatter.formatTemperatureWithUnit(forecast.temperature, temperatureUnit)}',
+              WeatherUnitsFormatter.formatTemperatureWithUnit(
+                forecast.temperature,
+                temperatureUnit,
+              ),
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,

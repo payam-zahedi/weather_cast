@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_cast/features/weather/presentation/cubit/weather_cubit.dart';
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
           create: (_) => WeatherCubit(
             getWeatherForecastUseCase: di.getIt(),
             aggregateWeeklyForecastUseCase: di.getIt(),
-          ),
+          )..fetchWeatherForecast(),
         ),
         // Add more BlocProviders as needed
       ],
@@ -32,6 +34,12 @@ class MyApp extends StatelessWidget {
         darkTheme: AppTheme.darkTheme,
         themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
+        scrollBehavior: ScrollBehavior().copyWith(
+          dragDevices: {
+            PointerDeviceKind.mouse,
+            PointerDeviceKind.touch,
+          },
+        ),
         home: const WeatherPage(),
       ),
     );
