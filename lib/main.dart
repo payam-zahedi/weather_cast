@@ -9,7 +9,11 @@ import 'core/themes/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  /// Initialize the dependency injection container
   await di.init();
+
+  /// Run the app
   runApp(const MyApp());
 }
 
@@ -26,7 +30,6 @@ class MyApp extends StatelessWidget {
             aggregateWeeklyForecastUseCase: di.getIt(),
           )..fetchWeatherForecast(),
         ),
-        // Add more BlocProviders as needed
       ],
       child: MaterialApp(
         title: 'Weather App',
@@ -34,6 +37,7 @@ class MyApp extends StatelessWidget {
         darkTheme: AppTheme.darkTheme,
         themeMode: ThemeMode.system,
         debugShowCheckedModeBanner: false,
+
         /// Update scroll behavior to add mouse and touch support for macos
         scrollBehavior: ScrollBehavior().copyWith(
           dragDevices: {

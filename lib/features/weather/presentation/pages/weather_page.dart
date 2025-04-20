@@ -26,16 +26,7 @@ class WeatherPage extends StatelessWidget {
       ),
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Theme.of(context).colorScheme.surfaceContainer,
-              Theme.of(context).colorScheme.surfaceContainer.withBlue(
-                    230,
-                  ),
-            ],
-          ),
+          color: Theme.of(context).colorScheme.surfaceContainer,
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0),
